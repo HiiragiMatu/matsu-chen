@@ -30,13 +30,14 @@ app.get('/', function(req, res) {
     Article.find({}, function(err, articles){
         if(err) {
             console.log(err);
+        } else {
+            res.render('index', {
+                //Use npm install -g <name>, so that no need to restart
+                //tag: argument -> be passed to html 
+                title:'Articles',
+                articles: articles
+            }); 
         }
-        res.render('index', {
-            //Use npm install -g <name>, so that no need to restart
-            //tag: argument -> be passed to html 
-            title:'Articles',
-            articles: articles
-        });
     });
 });
 

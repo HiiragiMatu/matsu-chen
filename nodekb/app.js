@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
 
@@ -27,9 +28,10 @@ let Article = require('./models/articles');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.get('/api/members', (req, res) => {
-    res.json(members);
-});
+//Body parser middleware -> parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 // Home Route
 app.get('/', function(req, res) {
@@ -53,8 +55,22 @@ app.get('/articles/add', function(req, res){
         title: 'Add Articles'
     });
 });
+// Add Submit POST Route -> We can use the same route with different method(GET,POST...)
+app.post('/articles/add', function(req, res) {
+    let article = new Article();
+    article.title = req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
 
-
+    article.save(function(err) {
+        if(err) {
+            console.log(err);
+            return;
+        } else {
+            res.redirect('/');
+        }
+    }); 
+}); 
 
 // Start Server
 app.listen(PORT, function(){

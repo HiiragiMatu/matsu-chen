@@ -2,10 +2,12 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000;
+
 mongoose.connect('mongodb://localhost/nodekb');
 let db = mongoose.connection;
 
-//Check for DB Connection
+//Check for DB Connection 
 db.once('open', function() {
     console.log('Connected to MongoDB');
 });
@@ -16,7 +18,7 @@ db.on('error', function(err) {
 });
 
 // Init App
-const app = express();
+const app = express();  
 
 // Bring in Models
 let Article = require('./models/articles');
@@ -24,6 +26,10 @@ let Article = require('./models/articles');
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.get('/api/members', (req, res) => {
+    res.json(members);
+});
 
 // Home Route
 app.get('/', function(req, res) {
@@ -48,8 +54,10 @@ app.get('/articles/add', function(req, res){
     });
 });
 
+
+
 // Start Server
-app.listen(3000, function(){
-    console.log('Server started on port 3000...');
+app.listen(PORT, function(){
+    console.log(`Server started on port ${PORT}...`);
 });
 

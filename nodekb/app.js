@@ -33,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+//Set Public Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Home Route
 app.get('/', function(req, res) {
     Article.find({}, function(err, articles){
@@ -55,6 +58,16 @@ app.get('/articles/add', function(req, res){
         title: 'Add Articles'
     });
 });
+
+// Get Single Article
+app.get('/article/:id', function(req, res) {
+  Article.findById(req.params.id, function(err, article) { 
+      res.render('article', {
+        article:article
+    });
+  });
+});
+
 // Add Submit POST Route -> We can use the same route with different method(GET,POST...)
 app.post('/articles/add', function(req, res) {
     let article = new Article();

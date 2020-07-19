@@ -3,7 +3,8 @@ extends layout
 
 block content
   h1 #{title} 
-  ul
+  ul.list-group
     each article, i in articles
       //-the "=" sign should be right after the variable to be assigned!!
-      li= article.title
+      li.list-group-item  
+        a(href='/article/'+article._id)= article.title

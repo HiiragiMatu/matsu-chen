@@ -7,3 +7,8 @@ This project is created for my own purpose. To be honest, I have longing for hav
 Below are the things I want to create on this website:
 1.Store my reseacrh projects in AI field such as a chat-bot or motto-creating using nlp.
 2.Store my application projects such as calling or gps service.
+
+
+To do list:
+1.Building a website and deploy to Heroku -> know how to work with Heroku, postman, passport... 
+2.

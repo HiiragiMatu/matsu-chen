@@ -22,8 +22,7 @@ html
           li.nav-item
             a.nav-link(href='/contact') Contact
           li.nav-item
-            a.nav-link(href='/articles/add') add
-        
+            a.nav-link(href='/articles/add') Add
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               | FunnyStuff
@@ -31,16 +30,23 @@ html
               a.dropdown-item(href='/ml') ML
               a.dropdown-item(href='/dl') DL
               a.dropdown-item(href='/nlp') NLP
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/users/Register') Register
+          li
+            a(href='/users/login') Login
+        
     .container
+      != messages('message', locals)
+      if errors 
+        each error, i in errors
+          div(class='alert alert-danger') #{error.msg}
       block content
       br
       hr
       footer
         p Copyright &copy; 2020
     script(src='/bower_components/jquery/dist/jquery.js')  
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    script(src='')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/js/main.js')  

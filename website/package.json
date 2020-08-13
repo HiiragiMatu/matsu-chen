@@ -1,0 +1,31 @@
+{
+  "name": "nodekb",
+  "version": "1.0.0",
+  "description": "My Own Website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "Matsu Chen",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^5.3.1",
+    "http-error": "0.0.6",
+    "http-errors": "^1.8.0",
+    "mongoose": "^5.9.22",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "webpack": "^4.14.0"
+  }
+}

@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const path = require('path');
 const createError = require('http-errors');
@@ -11,6 +10,7 @@ const logger = require('morgan');
  */
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
+app.use('/routes/users', userRouter);
 
 /**
  * Specify modules that are going to be used
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * When catch 404 error, forward to error handler
  */
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
   next(createError(404));
 });
 app.use(function(err, req, res, next){
@@ -31,8 +31,8 @@ app.use(function(err, req, res, next){
 
   res.status(err.status || 500);
   res.render('error');
-});
-
+})
+*/
 
 /**
  * Set directory to contain the templates('views')
@@ -61,7 +61,7 @@ const POST = process.env.PORT || 3000;
  * Router definition(callback func)
  */
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('index', {title: 'My Website'});
 });
 
 app.get('/about', function(req, res){
@@ -71,6 +71,8 @@ app.get('/about', function(req, res){
 app.get('/porfolio', function(req, res){
   res.render('portfolio');
 })
+
+
 
 app.listen(POST, function(){
   console.log(`Listening on port ${POST}...`);

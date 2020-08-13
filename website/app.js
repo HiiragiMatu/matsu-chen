@@ -1,17 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
-const app = express();
+const app = express.Router();
+const path = require('path');
 
 
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Set directory to contain the templates('views')
  * Set view engine to use, could be pug or other template format
  */
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
 /**
  * Default mongoose connection
  * Bind connection to error event
@@ -45,3 +46,5 @@ app.listen(POST, function(){
 });
 
 
+module.exports = router;
+module.exports = app;

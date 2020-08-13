@@ -3,5 +3,38 @@ extends layout
 block content  
   head
     title= title
-  body
-    p Welcome to #{title}    
+  body   
+    .row
+    .leftcolumn
+      .card
+        h2 TITLE HEADING
+        h5 Title description, Dec 7, 2017
+        .fakeimg(style='height:200px;') Image
+        p Some text..
+        p
+          | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+      .card
+        h2 TITLE HEADING
+        h5 Title description, Sep 2, 2017
+        .fakeimg(style='height:200px;') Image
+        p Some text..
+        p
+          | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+    .rightcolumn
+      .card
+        h2 About Me
+        .fakeimg(style='height:100px;') Image
+        p Some text about me in culpa qui officia deserunt mollit anim..
+      .card
+        h3 Popular Post
+        .fakeimg
+          p Image
+        .fakeimg
+          p Image
+        .fakeimg
+          p Image
+      .card
+        h3 Follow Me
+        p Some text..
+
+    

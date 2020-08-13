@@ -28,16 +28,17 @@ html
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               | Portfolio
             .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-              a.dropdown-item(href='/ml') Machine Learning
-              a.dropdown-item(href='/nlp') Natural Language Process
               a.dropdown-item(href='/games') Games
               a.dropdown-item(href='/gadgets') Gadgets
+              a.dropdown-item(href='/ml') Machine Learning
+              a.dropdown-item(href='/nlp') Natural Language Process
         form.form-inline.my-2.my-lg-0
           input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
           button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
     block content
     footer
-      p Copyright &copy; 2020
+      p 
+        | Copyright &copy; 2020
 
   script(src='/bower_components/jquery/dist/jquery.js')  
   script(src='/bower_components/bootstrap/dist/js/bootstrap.js')

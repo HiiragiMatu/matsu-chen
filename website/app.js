@@ -1,9 +1,32 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const mongo = require('mongodb');
 const app = express();
 const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
+
+/**Model Implementation */
+
+const Animal = require('./models/animal');
+
+const elephant = new Animal({
+  category: 'On Land', 
+  mass: 6000,
+  size: 'giant',
+  name:'Lawrence'
+});
+
+console.log(elephant.category);
+elephant.getCategory();
+
+elephant.save((err, animal) => {
+  if(err) {
+    return console.error(err);
+  }
+  console.log('document saved');
+  db.close();
+})
 
 /**
  * Require modules created by myself
@@ -44,24 +67,29 @@ app.set('view engine', 'pug');
  * Default mongoose connection
  * Bind connection to error event
  */
-mongoose.connect('mongodb://localhost/website');
+
+mongoose.connect('mongodb://localhost/websitedb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 let db = mongoose.connection;
 /**
  * Check for DB connection and error
  */
-db.once('open', function() {
-  console.log('Connected to MongoDB');
-});
+//db.on('error', err => console.log('Connection Error', err));
 db.on('error', function(err) {
   console.log(err);
 });
-
+//db.once('open', err => console.log('Connection Successful'));
+db.once('open', function() {
+  console.log('Connected to MongoDB');
+});
 const POST = process.env.PORT || 3000;
 /**
  * Router definition(callback func)
  */
 app.get('/', function(req, res){
-  res.render('index', {title: 'My Website'});
+  res.render('index');
 });
 
 app.get('/about', function(req, res){

@@ -18,6 +18,7 @@
     "express-validator": "^5.3.1",
     "http-error": "0.0.6",
     "http-errors": "^1.8.0",
+    "mongodb": "^3.6.0",
     "mongoose": "^5.9.22",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",

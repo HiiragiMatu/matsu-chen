@@ -21,11 +21,11 @@
    },
  });
 
- AnimalSchema.methods.getCategory = function () {
+ AnimalSchema.method('getCategory', function () {
    console.log(`This animal belongs to ${this.category}`);
- };
+ });
 
- AnimalSchema.methods('getName', function() {
+ AnimalSchema.method('getName', function() {
    console.log(`The animal is ${this.name}`);
  });
 

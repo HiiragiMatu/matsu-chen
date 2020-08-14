@@ -9,7 +9,7 @@ const logger = require('morgan');
 /**Model Implementation */
 
 const Animal = require('./models/animal');
-
+/*
 const elephant = new Animal({
   category: 'On Land', 
   mass: 6000,
@@ -26,14 +26,13 @@ elephant.save((err, animal) => {
   }
   console.log('document saved');
   db.close();
-})
+});*/
 
 /**
  * Require modules created by myself
  */
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/users');
-app.use('/routes/users', userRouter);
+
 
 /**
  * Specify modules that are going to be used
@@ -75,7 +74,7 @@ mongoose.connect('mongodb://localhost/websitedb', {
 let db = mongoose.connection;
 /**
  * Check for DB connection and error
- */
+ */877
 //db.on('error', err => console.log('Connection Error', err));
 db.on('error', function(err) {
   console.log(err);

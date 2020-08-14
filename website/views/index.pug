@@ -2,7 +2,9 @@ extends layout
 
 block content  
   head
-    title= title
+    style
+      include ../public/css/index.css
+    title= title 
   body  
       .header#home.bgimg.w3-display-container.w3-grayscale-min
         img(src='/images/bgimg.jpg', alt='bgimg' id='bgimg') 

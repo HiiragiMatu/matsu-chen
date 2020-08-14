@@ -1,0 +1,13 @@
+extends extends1.pug
+
+block content
+  .sidebar
+    block sidebar
+      p one thing
+  .primary
+    block primary
+      p two thing
+      - let msg = "no way to be stucked"
+      p I am saying #{msg.toUpperCase()}`
+
+    

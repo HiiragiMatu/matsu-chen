@@ -3,3 +3,47 @@
 ul 
   each val in [1,2,3,4,5,6,7,8]
     li= val
+
+mixin list
+  ul
+    li foo
+    li fuck
+    li damn
++list
++list
+
+mixin pet(name)
+  li.pet= name
+ul
+  +pet('cat')
+  +pet('dog')
+  +pet('rabbit')
+
+mixin article(title)
+  .article
+    .article-wrapper
+      h1= title
+      if block
+        block
+      else 
+        p No content provided
+
++article('Hello World')
++article('Magic World')
+  p Magician
+  p Amazing Magician
+
+mixin link(href, name)
+  a(class!=atttirubtes.class href=href)= name
+
++link('/fuckWorld', 'fuckworld')(class="btn")
+
+mixin link(href, name)
+  a(href=href)&attributes(attributes)= name
+
+mixin list(id, ...items)
+  ul(id=id)
+    each item in items
+      li= item
+    
++list('first-list', 1,2,3,4,5,6,7,8,9,10)

@@ -3,13 +3,15 @@ extends layout
 block content  
   head
     title= title
-  body   
-      .header 
-        h1 
-        | Welcome ! I'm Matsu Chen
+  body  
+      .header#home.bgimg.w3-display-container.w3-grayscale-min
+        img(src='/images/bgimg.jpg', alt='bgimg' id='bgimg') 
+        .w3-display-middle.w3-center
+          span.w3-text-white(style='font-size:50px')
+            | Matsu Chen
       .row
         .column
-          img(src='/images/propic.jpg', alt='Propic') 
+          img(src='/images/propic.jpg', alt='Propic' id='profic') 
         .column
           .card
             h2 Introduction
@@ -19,4 +21,5 @@ block content
             br
             br
             p
-              |  I'm Matsu Chen, and I graduated from ...
+              |  I'm Matsu Chen. I graduated from National Yunlin University of Science and Technology(NYUST) and major in Information Management(IM).
+              |  

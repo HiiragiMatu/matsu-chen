@@ -11,12 +11,25 @@ body {
   font-size: 16px;
   margin: 0px;
   padding: 10px;
+  height: 100%;
   background:rgba(192,192,192,0.3);
 }
 
+#bgimg {
+  height: 50%;
+  width: 100%;
+  opacity: 80%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/website/public/images/bgimg.jpg");
+  min-height: 75%;
+}
+
+
 .header {
   font-size: 28px;
-  align-content: left;
+  text-align: center;
+  align-content: center;
   border: auto;
   margin: auto;
   padding: auto;
@@ -24,17 +37,19 @@ body {
   background: rgba(192,192,192,0.3);
 }
 
-img {
+
+#profic {
   height: 250px;
   width: 300px;
   display: block;
-  margin: 0px;
+  margin: auto;
   padding: 5px;
   align-content: left; 
   text-align: left;
 }
 
 .column {   
+  text-align: center;
   align-content: left;
   border: auto;
   margin: auto;

@@ -7,7 +7,7 @@ const createError = require('http-errors');
 const logger = require('morgan');
 
 /**Model Implementation */
-
+const db = require('./db')
 const Animal = require('./models/animal');
 /*
 const elephant = new Animal({
@@ -67,22 +67,22 @@ app.set('view engine', 'pug');
  * Bind connection to error event
  */
 
-mongoose.connect('mongodb://localhost/websitedb', {
+/*mongoose.connect( 'mongodb://localhost/express-todo', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
-let db = mongoose.connection;
+});*/
+//let db = mongoose.connection;
 /**
  * Check for DB connection and error
- */877
+ */
 //db.on('error', err => console.log('Connection Error', err));
-db.on('error', function(err) {
+/*db.on('error', function(err) {
   console.log(err);
-});
+});*/
 //db.once('open', err => console.log('Connection Successful'));
-db.once('open', function() {
+/*db.once('open', function() {
   console.log('Connected to MongoDB');
-});
+});*/
 const POST = process.env.PORT || 3000;
 /**
  * Router definition(callback func)

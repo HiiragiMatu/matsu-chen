@@ -58,7 +58,7 @@ body {
   height: 250px;
 }
 
-footer {
+#footer {
   display: block;
   margin: auto;
   border: auto;

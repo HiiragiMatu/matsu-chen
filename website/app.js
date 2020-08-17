@@ -1,4 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
 const mongo = require('mongodb');
 const app = express();
@@ -56,6 +59,16 @@ app.use(function(err, req, res, next){
   res.render('error');
 })
 */
+/**
+ * View engine setup. 
+ * Nodemailer for contact page.
+ */
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlerbars');
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
+
 
 /**
  * Set directory to contain the templates('views')
@@ -92,13 +105,68 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+app.get('/posts', function(req,res){
+  res.render('posts');
+})
+
+app.get('/photography', function(req,res){
+  res.render('photography');
+});
+
 app.get('/about', function(req, res){
   res.render('about');
 });
 
+app.get('/contact', function(req, res){
+  res.render('contact', {title: 'Contact'});
+});
+app.post('/send', (req, res) => {
+  const output = `
+    <p>You have a new contact request as followed:</p>
+    <h3>Contact Details</h3>
+    <ul>
+      <li>Name: ${req.body.name}</li>
+      <li>Company: ${req.body.company}</li>
+      <li>Email: ${req.body.email}</li>
+      <li>Phone: ${req.body.phone}</li>
+    </ul>
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+  `
+
+  
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "localhost:3000",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass, // generated ethereal password
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  // send mail with defined transport object
+  let info = transporter.sendMail({
+    from: '"Matsu Website Contact 👻"', // sender address
+    to: "matuyou0301@gmail.com", // list of receivers
+    subject: "Email Contact from Matsu Website ✔", // Subject line
+    text: "Hi Matsu!", // plain text body
+    html: output, 
+  }); 
+  console.log("Message sent: %s", info.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  
+  res.render('contact', {meg: "Email has been sent to Matsu"});
+});
+
 app.get('/porfolio', function(req, res){
   res.render('portfolio');
-})
+});
 
 
 

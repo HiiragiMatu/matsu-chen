@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  head
+    style
+      include ../public/css/contact.css
+      link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+      
+    title= title
+  body
+    .container
+      h1.brand
+        span Matsu 
+        |  Website
+      .wrapper.animated.bounceInLeft
+        .company-info
+          h3 Contact Infomation
+          ul
+            li
+              i.country
+              |  Place: Taiwan
+            li
+              i.phone
+              |  Phone: (+886) 920657355
+            li
+              i.email
+              |  Email: matuyou0301@gmail.com
+            li
+              i.github
+              |  Github: https://github.com/HiiragiMatu
+        .contact
+          h3 Email 
+          - let msg; 
+          
+          form(method="POST" action="/send")
+            p
+              label Name
+              input(type='text', name='name')
+            p
+              label Company
+              input(type='text', name='company')
+            p
+              label Email Address
+              input(type='email', name='email')
+            p
+              label Phone Number
+              input(type='text', name='phone')
+            p.full
+              label Message
+              textarea(name='message', rows='5')
+            p.full
+              button(type="submit") Submit

@@ -1,11 +1,13 @@
 doctype html
-html 
+html(lang='en')
   head 
     title Matsu
+    meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet' href='/css/style.css')
-    block script
+    block script  
   body
     block head
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
@@ -17,7 +19,7 @@ html
           li.nav-item.active 
             a.nav-link(href='/') Home 
           li.nav-item
-            a.nav-link(href='/note') Notes
+            a.nav-link(href='/posts') Posts
           li.nav-item
             a.nav-link(href='/photography') Photography
           li.nav-item

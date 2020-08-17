@@ -1,0 +1,4 @@
+gcloud app deploy matsu-website-app.yaml
+gcloud app deploy app.standard.yaml
+
+runtime: nodejs12 

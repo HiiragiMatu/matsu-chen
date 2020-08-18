@@ -1,4 +1,16 @@
-gcloud app deploy matsu-website-app.yaml
-gcloud app deploy app.standard.yaml
 
-runtime: nodejs12 
+runtime: nodejs
+env: flex
+skip_files: ^node_modules/.*$
+
+
+
+env_variables:
+  SPRING_PROFILES_ACTIVE: "cloud-gcp"
+
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+  secure: always
+manual_scaling: 
+  instances: 1

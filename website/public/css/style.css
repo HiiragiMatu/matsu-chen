@@ -1,52 +1,115 @@
 * {
-  box-sizing: border-box;
-}
-
-nav {
-  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  line-height:1.6;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  margin: 0px;
-  padding: 10px;
-  height: 100%;
-  background:rgba(192,192,192,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+  background: #333333;
+  color: #fff;
+  line-height: 1.6;
+  height: 100vh;
+  /*overflow: hidden*/
 }
 
-#bgimg {
-  height: 50%;
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
   width: 100%;
-  opacity: 80%;
-  background-position: center;
-  background-size: cover;
-  background-image: url("/website/public/images/bgimg.jpg");
-  min-height: 75%;
+  height: 60px;
+  background: rgba(0,0,0,0.7);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 1rem;
+  padding: 1rem;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  color:#f4f4f4; 
+}
+
+.navbar ul li a:hover {
+  color: skyblue;
+}
+
+#menu a {
+  color: black;
 }
 
 
-.header {
-  font-size: 28px;
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  align-content: center;
-  border: auto;
-  margin: auto;
-  padding: auto;
-  width: 85%;
-  background: rgba(192,192,192,0.3);
+  justify-content: center;
+  scroll-snap-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+section h1 {
+  font-size: 16rem;
+}
+
+section p {
+  font-size: 1.5rem;
+}
+
+section#home {
+  background: url('../images/Home_1.jpg') no-repeat center center/
+  cover;
+}
+
+#home h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: black;
+}
+
+#hp {
+  font-display: center;
+  font-size: 16px;
+  width: 75%;
 }
 
 
-#profic {
-  height: 250px;
-  width: 300px;
-  display: block;
-  margin: auto;
-  padding: 5px;
-  align-content: left; 
-  text-align: left;
+
+section#posts {
+  background: url('../images/POST_1.jpg') no-repeat center center/
+  cover;
+}
+
+section#photography {
+  background: url('../images/Pho_1.JPG') no-repeat center center/
+  cover;
+}
+
+section#about {
+  background: url('../images/.jpg') no-repeat center center/
+  cover;
+}
+
+section#contact {
+  background: url('../images/') no-repeat center center/
+  cover;
+}
+
+section#portfolio {
+  background: url('../images/.jpg') no-repeat center center/
+  cover;
 }
 
 .column {   
@@ -59,7 +122,7 @@ body {
   height: 250px;
 }
 
-#footer {
+.footer {
   display: block;
   margin: auto;
   border: auto;

@@ -3,15 +3,15 @@ html(lang='en')
   head 
     title Matsu
     meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet' href='/css/style.css')
     block script  
   body
     block head
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      a.navbar-brand(href='#') Matsu
+      //-a.navbar-brand(href='#') MATSU
       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarNavDropdown.collapse.navbar-collapse
@@ -26,24 +26,40 @@ html(lang='en')
             a.nav-link(href='/about') About
           li.nav-item
             a.nav-link(href='/contact') Contact
-          
           li.nav-item.dropdown
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               | Portfolio
-            .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            .dropdown-menu#menu(aria-labelledby='navbarDropdownMenuLink')
               a.dropdown-item(href='/games') Games
               a.dropdown-item(href='/gadgets') Gadgets
               a.dropdown-item(href='/ml') Machine Learning
               a.dropdown-item(href='/nlp') Natural Language Process
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
     block content
-    //-block foot
-    #footer
+    section#home
+      h1 Matsu Chen
+      p#hp
+        |  Hello, I'am Matsu Chen. I graduated from National Yunlin University of Science and Technology(NYUST) and major in Information Management(IM).
+        |  My interests are languagues, piano, photography and programming. I can communicate both in Japanese and English, and now learning to speak in
+        |  Korean. As for programming language, I am much more familiar with node.js and javascript compared to other languages, I know how to make use of
+        |  C and Python. If you would like to contact with me, please send an email to me in the contact page or just scroll down to the bottom of this page. 
+    section#posts
+      p
+        |  Post is building...
+    section#photography
+      p
+        |  Photography is building...
+    section#about
+      p
+        |  About is building...
+    section#contact
+      p
+        |  Contact is looking for its background photo now...
+    section#portfolio
+      p
+        |  Portfolio is building...
+    .footer
       p 
         | Copyright &copy; 2020
-
   script(src='/bower_components/jquery/dist/jquery.js')  
   script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
   script(src='/js/main.js') 

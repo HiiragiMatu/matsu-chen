@@ -3,14 +3,12 @@
 }
 
 body{
-  padding:1em;
+  padding:10px;
 }
 
 .container{
-  max-width:1270px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:1em;
+  max-width: auto;
+  max-height: auto;
 }
 
 ul{
@@ -18,17 +16,6 @@ ul{
   padding: 10px;
 }
 
-h1.brand{
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  padding: 5px;
-
-}
-
-.brand span{
-  color: black;
-}
 
 .wrapper{
   box-shadow: 0 0 15px 0 rgba(72,94,116,0.7);
@@ -39,18 +26,19 @@ h1.brand{
 }
 
 .company-info{
-  background:#a59090;
+  background:#6d4c4c;
   text-align: center;
 }
 
 .company-info h3, .company-info ul{
   text-align: center;
   padding: 10px;
-  margin:0 0 1rem 0;
+  margin: 10px;
+  border: 20px;
 }
 
 .contact{
-  background:#eed3d3;
+  background:#493434;
 }
 
 /* FORM STYLES */
@@ -85,7 +73,7 @@ h1.brand{
 }
 
 .contact form button:hover,.contact form button:focus{
-  background:#ec0000;
+  background:black;
   color:#fff;
   outline:0;
   transition: background-color 2s ease-out;

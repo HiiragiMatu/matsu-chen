@@ -6,18 +6,19 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    //-Use the style.css in layout.pug 
     link(rel='stylesheet' href='/css/style.css')
     block script  
   body
     block head
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
       //-a.navbar-brand(href='#') MATSU
-      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='true' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarNavDropdown.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto.mt-2.mt-lg-0 
+        ul.navbar-nav.mr-auto.mt-2.mt-lg-0
           li.nav-item.active 
-            a.nav-link(href='/') Home 
+            a.nav-link(href='/index') Home 
           li.nav-item
             a.nav-link(href='/posts') Posts
           li.nav-item
@@ -35,28 +36,6 @@ html(lang='en')
               a.dropdown-item(href='/ml') Machine Learning
               a.dropdown-item(href='/nlp') Natural Language Process
     block content
-    section#home
-      h1 Matsu Chen
-      p#hp
-        |  Hello, I'am Matsu Chen. I graduated from National Yunlin University of Science and Technology(NYUST) and major in Information Management(IM).
-        |  My interests are languagues, piano, photography and programming. I can communicate both in Japanese and English, and now learning to speak in
-        |  Korean. As for programming language, I am much more familiar with node.js and javascript compared to other languages, I know how to make use of
-        |  C and Python. If you would like to contact with me, please send an email to me in the contact page or just scroll down to the bottom of this page. 
-    section#posts
-      p
-        |  Post is building...
-    section#photography
-      p
-        |  Photography is building...
-    section#about
-      p
-        |  About is building...
-    section#contact
-      p
-        |  Contact is looking for its background photo now...
-    section#portfolio
-      p
-        |  Portfolio is building...
     .footer
       p 
         | Copyright &copy; 2020

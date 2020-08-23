@@ -1,1 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+
+
+section p {
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  font-weight: 300;
+  color: rgba(0,0,0,1)
+}
+
+section#about p {
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1)
+}
+
+section#home p{
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1)
+}
+
+#about p {
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  font-weight: 300;
+  color: white(0,0,0,1)
+}
+
+
+
+
+section#home {
+  z-index: 1;
+  background: url('../images/Home_1.jpg') no-repeat center center/
+  cover;
+}
+
+#home h1 {
+  font-size: 32px;
+  font-style: oblique;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+section#posts {
+  background: url('../images/POST_1.jpg') no-repeat center center/
+  cover;
+}
+
+section#photography {
+  background: url('../images/Pho_1.JPG') no-repeat center center/
+  cover;
+}
+
+section#about {
+  background: url('../images/About3-2.jpg') no-repeat center center/
+  cover;
+}
+
+section#contact {
+  background: url('../images/') no-repeat center center/
+  cover;
+}
+
+section#portfolio {
+  background: url('../images/Portfolio_1.jpg') no-repeat center center/
+  cover;
+}
+
+.column {   
+  text-align: center;
+  align-content: left;
+  border: auto;
+  margin: auto;
+  padding: auto;
+  width: 85%;
+  height: 250px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .column {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav a {
+    float: right;
+    width: 100%;
+  }
+}

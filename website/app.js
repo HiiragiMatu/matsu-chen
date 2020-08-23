@@ -101,7 +101,7 @@ const POST = process.env.PORT || 3000;
 /**
  * Router definition(callback func)
  */
-app.get('/', function(req, res){
+app.get('/index', function(req, res){
   res.render('index');
 });
 
@@ -120,6 +120,23 @@ app.get('/about', function(req, res){
 app.get('/contact', function(req, res){
   res.render('contact', {title: 'Contact'});
 });
+
+app.get('/games', function(req, res){
+  res.render('games');
+});
+
+app.get('/gadgets', function(req, res){
+  res.render('gadgets');
+})
+
+app.get('/ml', function(req, res){
+  res.render('ml');
+});
+
+app.get('/nlp', function(req, res){
+  res.render('nlp');
+});
+
 app.post('/send', (req, res) => {
   const output = `
     <p>You have a new contact request as followed:</p>

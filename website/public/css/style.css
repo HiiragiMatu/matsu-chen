@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+  font-size: 16px;
   background: #333333;
   color: #fff;
   line-height: 1.6;
@@ -15,7 +16,7 @@ body {
 .navbar {
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 20;
   display: flex;
   width: 100%;
   height: 60px;
@@ -24,6 +25,7 @@ body {
 
 .navbar ul {
   display: flex;
+  float: right;
   list-style: none;
   width: 100%;
   justify-content: center;
@@ -48,80 +50,6 @@ body {
   color: black;
 }
 
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  scroll-snap-align: center;
-  width: 100%;
-  height: 100vh;
-}
-
-section h1 {
-  font-size: 16rem;
-}
-
-section p {
-  font-size: 1.5rem;
-}
-
-section#home {
-  background: url('../images/Home_1.jpg') no-repeat center center/
-  cover;
-}
-
-#home h1 {
-  font-size: 32px;
-  font-weight: bold;
-  color: black;
-}
-
-#hp {
-  font-display: center;
-  font-size: 16px;
-  width: 75%;
-}
-
-
-
-section#posts {
-  background: url('../images/POST_1.jpg') no-repeat center center/
-  cover;
-}
-
-section#photography {
-  background: url('../images/Pho_1.JPG') no-repeat center center/
-  cover;
-}
-
-section#about {
-  background: url('../images/.jpg') no-repeat center center/
-  cover;
-}
-
-section#contact {
-  background: url('../images/') no-repeat center center/
-  cover;
-}
-
-section#portfolio {
-  background: url('../images/.jpg') no-repeat center center/
-  cover;
-}
-
-.column {   
-  text-align: center;
-  align-content: left;
-  border: auto;
-  margin: auto;
-  padding: auto;
-  width: 85%;
-  height: 250px;
-}
-
 .footer {
   display: block;
   margin: auto;
@@ -130,18 +58,4 @@ section#portfolio {
   width: 100%;
   text-align: center;
   align-content: center;
-}
-
-@media screen and (max-width: 800px) {
-  .column {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .nav a {
-    float: none;
-    width: 100%;
-  }
 }

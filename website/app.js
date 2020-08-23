@@ -101,7 +101,7 @@ const POST = process.env.PORT || 3000;
 /**
  * Router definition(callback func)
  */
-app.get('/index', function(req, res){
+app.get('/', function(req, res){
   res.render('index');
 });
 

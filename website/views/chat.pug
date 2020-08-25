@@ -12,7 +12,7 @@ html
       input#txt(autocomplete='off', autofocus='on', placeholder='Type your message here...')
       button Send
     script.
-      let socket = io.connect('http://localhost:3000/')
+      let socket = io.connect(window.location.origin)
       // submit text message without reload/refresh the page
       $('form').submit(function(e){
         e.preventDefault(); // prevents page reloading

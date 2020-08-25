@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app)
-let io = require('socket.io')(http);
+const io = require('socket.io')(http);
+const net = require('net')
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
@@ -88,7 +89,7 @@ app.set('view engine', 'pug');
   console.log('Connected to MongoDB');
 });*/
 
-const POST = process.env.PORT || 3000;
+const POST = process.env.PORT || 8888;
 
 /**
  * Router definition(callback func)

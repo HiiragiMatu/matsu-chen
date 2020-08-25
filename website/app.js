@@ -1,41 +1,26 @@
 const express = require('express');
+const app = express();
+const http = require('http').createServer(app)
+let io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
 const mongo = require('mongodb');
-const app = express();
 const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
 
 
+
 /**Model Implementation */
 const db = require('./db')
-const Animal = require('./models/animal');
-/*
-const elephant = new Animal({
-  category: 'On Land', 
-  mass: 6000,
-  size: 'giant',
-  name:'Lawrence'
-});
-
-console.log(elephant.category);
-elephant.getCategory();
-
-elephant.save((err, animal) => {
-  if(err) {
-    return console.error(err);
-  }
-  console.log('document saved');
-  db.close();
-});*/
 
 /**
  * Require modules created by myself
  */
-const indexRouter = require('./routes/index');
+//const indexRouter = require('./routes/index');
+
 
 
 /**
@@ -59,6 +44,7 @@ app.use(function(err, req, res, next){
   res.render('error');
 })
 */
+
 /**
  * View engine setup. 
  * Nodemailer for contact page.
@@ -68,14 +54,13 @@ app.set('view engine', 'handlerbars');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
-
-
 /**
  * Set directory to contain the templates('views')
  * Set view engine to use, could be pug or other template format
  */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
 /**
  * Default mongoose connection
  * Bind connection to error event
@@ -85,23 +70,30 @@ app.set('view engine', 'pug');
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });*/
+
 //let db = mongoose.connection;
 /**
  * Check for DB connection and error
  */
+
 //db.on('error', err => console.log('Connection Error', err));
+
 /*db.on('error', function(err) {
   console.log(err);
 });*/
+
 //db.once('open', err => console.log('Connection Successful'));
+
 /*db.once('open', function() {
   console.log('Connected to MongoDB');
 });*/
+
 const POST = process.env.PORT || 3000;
+
 /**
  * Router definition(callback func)
  */
-app.get('/index', function(req, res){
+app.get('/', function(req, res){
   res.render('index');
 });
 
@@ -135,6 +127,26 @@ app.get('/ml', function(req, res){
 
 app.get('/nlp', function(req, res){
   res.render('nlp');
+});
+
+/** Chat Code Here */
+app.get('/chat', function(req, res){
+  res.render('chat');
+});
+io.sockets.on('connection', function(socket) {
+    socket.on('username', function(username) {
+        socket.username = username;
+        io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
+    });
+
+    socket.on('disconnect', function(username) {
+        io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+    })
+
+    socket.on('chat_message', function(message) {
+        io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+    });
+
 });
 
 app.post('/send', (req, res) => {
@@ -181,14 +193,7 @@ app.post('/send', (req, res) => {
   res.render('contact', {meg: "Email has been sent to Matsu"});
 });
 
-app.get('/porfolio', function(req, res){
-  res.render('portfolio');
-});
-
-
-
-app.listen(POST, function(){
+const server = http.listen(POST, function(){
   console.log(`Listening on port ${POST}...`);
 });
-
 module.exports = app;

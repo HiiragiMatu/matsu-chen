@@ -1,5 +1,3 @@
-
-
 const userRoute = require('../models/users');
 
 userRoute.post('/register', (req, res, next) => {

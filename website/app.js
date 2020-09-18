@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const http = require('http').createServer(app)
+const POST = process.env.PORT || 8888;
+const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const net = require('net')
 const bodyParser = require('body-parser');
@@ -11,124 +12,19 @@ const mongo = require('mongodb');
 const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
+const passport = require('passport');
 
-
-
-/**Model Implementation */
-const db = require('./db')
-
-/**
- * Require modules created by myself
- */
-//const indexRouter = require('./routes/index');
-
-
-
-/**
- * Specify modules that are going to be used
- */
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({extended:false}));
-app.use(express.static(path.join(__dirname, 'public')));
-/**
- * When catch 404 error, forward to error handler
- */
-/*app.use(function(req, res, next){
-  next(createError(404));
-});
-app.use(function(err, req, res, next){
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  res.status(err.status || 500);
-  res.render('error');
-})
-*/
-
-/**
- * View engine setup. 
- * Nodemailer for contact page.
- */
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlerbars');
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
-
-/**
- * Set directory to contain the templates('views')
- * Set view engine to use, could be pug or other template format
- */
+// Require modules created by oneself
+require('./routes/pages')(app, passport);
+// const db = require('./db');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/public'));
 
-/**
- * Default mongoose connection
- * Bind connection to error event
- */
-
-/*mongoose.connect( 'mongodb://localhost/express-todo', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});*/
-
-//let db = mongoose.connection;
-/**
- * Check for DB connection and error
- */
-
-//db.on('error', err => console.log('Connection Error', err));
-
-/*db.on('error', function(err) {
-  console.log(err);
-});*/
-
-//db.once('open', err => console.log('Connection Successful'));
-
-/*db.once('open', function() {
-  console.log('Connected to MongoDB');
-});*/
-
-const POST = process.env.PORT || 8888;
-
-/**
- * Router definition(callback func)
- */
-app.get('/', function(req, res){
-  res.render('index');
-});
-
-app.get('/posts', function(req,res){
-  res.render('posts');
-})
-
-app.get('/photography', function(req,res){
-  res.render('photography');
-});
-
-app.get('/about', function(req, res){
-  res.render('about');
-});
-
-app.get('/contact', function(req, res){
-  res.render('contact', {title: 'Contact'});
-});
-
-app.get('/games', function(req, res){
-  res.render('games');
-});
-
-app.get('/gadgets', function(req, res){
-  res.render('gadgets');
-})
-
-app.get('/ml', function(req, res){
-  res.render('ml');
-});
-
-app.get('/nlp', function(req, res){
-  res.render('nlp');
-});
+//app.engine('handlebars', exphbs());
+//app.set('view engine', 'handlerbars');
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 
 /** Chat Code Here */
 app.get('/chat', function(req, res){
@@ -150,6 +46,7 @@ io.sockets.on('connection', function(socket) {
 
 });
 
+/** Mail Contact...need revising */
 app.post('/send', (req, res) => {
   const output = `
     <p>You have a new contact request as followed:</p>
@@ -164,9 +61,7 @@ app.post('/send', (req, res) => {
     <p>${req.body.message}</p>
   `
 
-  
 
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "localhost:3000",
     port: 587,

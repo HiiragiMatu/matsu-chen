@@ -7,16 +7,14 @@ const net = require('net')
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
-const mongoose = require('mongoose');
-const mongo = require('mongodb');
 const path = require('path');
-const createError = require('http-errors');
 const logger = require('morgan');
 const passport = require('passport');
 
 // Require modules created by oneself
 require('./routes/pages')(app, passport);
-// const db = require('./db');
+//const localDB = require('./db');
+const posts = require('./models/posts');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));

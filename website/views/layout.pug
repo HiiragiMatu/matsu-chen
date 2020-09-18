@@ -1,6 +1,6 @@
 doctype html
 html(lang='en')
-  head 
+  block head 
     title Matsu
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
@@ -9,7 +9,6 @@ html(lang='en')
     link(rel='stylesheet' type='text/css' href='/css/style.css')
     block script  
   body
-    block head
     nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
       //-a.navbar-brand(href='#') MATSU
       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='true' aria-label='Toggle navigation')
@@ -43,3 +42,5 @@ html(lang='en')
   script(src='/bower_components/jquery/dist/jquery.js')  
   script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
   script(src='/js/main.js') 
+  script(src='/js/pages.js')
+  script(src='/models/posts.js')

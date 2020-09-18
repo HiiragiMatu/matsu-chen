@@ -24,7 +24,7 @@
     "http-error": "0.0.6",
     "http-errors": "^1.8.0",
     "mongodb": "^3.6.0",
-    "mongoose": "^5.10.0",
+    "mongoose": "^5.10.5",
     "morgan": "^1.10.0",
     "net": "^1.0.2",
     "nodemailer": "^6.4.11",

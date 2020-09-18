@@ -1,14 +1,21 @@
 extends layout
-
 block content  
   head
     style
       include ../public/css/posts.css
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-      <link rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css'>
-    title= title
+      link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+      link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata")
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css')
+    title Posts
   body  
     section#posts
-      p
-        |  Building Posts...
+      
+      h5 Written By #{author}
+    
+      hr
+      //if user
+        if user.id == post.author
+          a.btn.btn-default(href='/posts/edit/'+ post._id) Edit 
+          a.btn.btn-danger.delete-article(href='#', data-id=post._id) Delete      
+
+        

@@ -1,18 +1,23 @@
-const mongoose = require( 'mongoose' );
-mongoose.connect('mongodb://localhost/website,' , {
+const mongoose = require('mongoose');
+const mongoURI = 'mongodb://localhost:27017/website'
+/*mongoose.connect('mongodb://localhost:27017/website,' , {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+});*/
 
-const db = mongoose.connection; 
+let db = mongoose.connection;
 // Or in this way: db.on('error', err => console.log('Connection Error', err));
 db.on('error', function(err){
   console.log(`Error: ${err}`);
 });
 db.once('open', function(){
-  console.log(`MongoDB Connection Successful!`);
+  console.log(`MongoDB Connection Successful! ${db.name}`);
 });
 
+module.exports = mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 /*
 var Schema   = mongoose.Schema;
 var POST = new Schema({

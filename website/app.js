@@ -1,4 +1,5 @@
 const express = require('express');
+const expressValidator = require('express-validator');
 const app = express();
 const POST = process.env.PORT || 8888;
 const http = require('http').createServer(app);
@@ -13,8 +14,7 @@ const passport = require('passport');
 
 // Require modules created by oneself
 require('./routes/pages')(app, passport);
-//const localDB = require('./db');
-const posts = require('./models/posts');
+let localDB = require('./models/db');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
@@ -23,6 +23,8 @@ app.use(express.static(__dirname + '/public'));
 //app.set('view engine', 'handlerbars');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+app.use(expressValidator());
+
 
 /** Chat Code Here */
 app.get('/chat', function(req, res){

@@ -3,7 +3,6 @@
   padding: 0;
 }
 
-
 section {
   display: flex;
   flex-direction: column;
@@ -15,8 +14,6 @@ section {
   height: 100vh;
 }
 
-
-
 section p {
   font-size: 1.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,12 +22,17 @@ section p {
   color: rgba(0,0,0,1)
 }
 
-section#about p {
-  font-size: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+section#home {
+  z-index: 1;
+  background: url('../images/Home_1.jpg') no-repeat center center/
+  cover;
+}
+
+section#home h1 {
+  font-size: 32px;
   font-style: oblique;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 1)
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
 }
 
 section#home p{
@@ -39,30 +41,6 @@ section#home p{
   font-style: oblique;
   font-weight: 300;
   color: rgba(255, 255, 255, 1)
-}
-
-#about p {
-  font-size: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-style: oblique;
-  font-weight: 300;
-  color: white(0,0,0,1)
-}
-
-
-
-
-section#home {
-  z-index: 1;
-  background: url('../images/Home_1.jpg') no-repeat center center/
-  cover;
-}
-
-#home h1 {
-  font-size: 32px;
-  font-style: oblique;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
 }
 
 section#posts {
@@ -80,13 +58,21 @@ section#about {
   cover;
 }
 
+section#about p {
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1)
+}
+
 section#contact {
   background: url('../images/') no-repeat center center/
   cover;
 }
 
 section#portfolio {
-  background: url('../images/Portfolio_1.jpg') no-repeat center center/
+  background: url('../images/') no-repeat center center/
   cover;
 }
 
@@ -98,6 +84,20 @@ section#portfolio {
   padding: auto;
   width: 85%;
   height: 250px;
+}
+
+section a:link, a:visited {
+  color: black;
+  background-color: cornsilk;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 1em;
+  display: inline-block;
+  box-shadow: 1px 1px 3px cornsilk;
+}
+
+section a:hover {
+  color: white;
 }
 
 

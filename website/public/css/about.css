@@ -12,12 +12,25 @@ section {
   scroll-snap-align: center;
   width: 100%;
   height: 100vh;
+  background-color: whitesmoke;
 }
 
-section p {
+section .about {
   font-size: 1.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: oblique;
-  font-weight: 300;
-  color: rgba(0,0,0,1)
+  font-weight: 150px;
+  color: black;
+}
+
+section .img-container img {
+  width: 150px;
+  height: 200px;
+  float: left;
+}
+
+section p#content {
+  font-size: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
 }

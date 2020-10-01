@@ -4,28 +4,24 @@ const app = express();
 const POST = process.env.PORT || 8888;
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-const net = require('net')
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
-const logger = require('morgan');
 const passport = require('passport');
 
-// Require modules created by oneself
+// Require modules created by myself
 require('./routes/pages')(app, passport);
 let localDB = require('./models/db');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
-
-//app.engine('handlebars', exphbs());
-//app.set('view engine', 'handlerbars');
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(expressValidator());
-
-
+//app.engine('handlebars', exphbs());
+//app.set('view engine', 'handlerbars');
 /** Chat Code Here */
 app.get('/chat', function(req, res){
   res.render('chat');
@@ -60,8 +56,6 @@ app.post('/send', (req, res) => {
     <h3>Message</h3>
     <p>${req.body.message}</p>
   `
-
-
   let transporter = nodemailer.createTransport({
     host: "localhost:3000",
     port: 587,
@@ -85,11 +79,12 @@ app.post('/send', (req, res) => {
   }); 
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  
+
   res.render('contact', {meg: "Email has been sent to Matsu"});
 });
 
 const server = http.listen(POST, function(){
   console.log(`Listening on port ${POST}...`);
 });
+
 module.exports = app;
